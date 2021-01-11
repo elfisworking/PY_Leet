@@ -1,3 +1,4 @@
+# this function spend 28ms 13MB
 def reverse_1(x):
     """
     :type x: int
@@ -16,7 +17,8 @@ def reverse_1(x):
         return y
     else:
         return 0 
-def reverse_2(self, x):
+# this function spend less time (12ms 13MB)
+def reverse_2(x):
         """
         :type x: int
         :rtype: int
@@ -30,6 +32,21 @@ def reverse_2(self, x):
             return x
         else:
             return 0
-print(2**31 - 1)
-print(reverse(1563847412))
+def reverse_3(x):
+    """
+    :type x:int
+    :rtype:int
+    """
+    sum = 0
+    temp = x
+    x= abs(x)
+    while x :
+        sum = sum * 10 + x % 10
+        x= int(x / 10)
+    sum = sum if temp > 0 else -sum
+    if -2**31 < sum < 2**31 -1 :   
+        return sum
+    else:
+        return 0 
+print(reverse_3(1563847412))
 
