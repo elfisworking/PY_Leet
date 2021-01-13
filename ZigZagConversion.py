@@ -31,10 +31,10 @@ class Solution:
         for i in range(0,numRows):
             for j in range(0,l-i,num):
                 res += s[j+i]
-                if(i != 0 and i != numRows-1 and j+num-i <n):
+                if(i != 0 and i != numRows-1 and j+num-i < l):
                     res +=s[j+num-i]
         return res
-#更加简洁的方法
+    #更加简洁的方法
     def convert_3(self, s: str, numRows: int) -> str:
         if numRows < 2: return s
         res = ["" for _ in range(numRows)]
