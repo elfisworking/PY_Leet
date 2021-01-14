@@ -12,7 +12,7 @@ class Solution:
                 ans.append(False)
         return ans
     # second iter faster
-     def prefixesDivBy5_2(self, A: List[int]) -> List[bool]:
+    def prefixesDivBy5_2(self, A: List[int]) -> List[bool]:
         ans = []
         res = 0
         for i in A:
