@@ -33,3 +33,32 @@ class Solution:
                 if c < N-1: union(base + 2,base + 4)
                 if r < N-1: union(base + 3,base + 4*N + 1)
         return sum(parent[i] == i for i in range(4*N*N))
+    
+    def regionsBySlashes(self, grid: List[str]) -> int:
+        n=len(grid)
+        m=n+1
+        self.res=1
+        parent=[i for i in range(m*m+1)]
+        def find(x):
+            if parent[x]!=x:
+                parent[x]=find(parent[x])
+            return parent[x]
+        
+        def union(x,y):
+            fx=find(x)
+            fy=find(y)
+            if fx!=fy:
+                parent[fx]=fy
+            else:
+                self.res+=1
+
+        for i in range(m*m):
+            if i%m==0 or i%m==m-1 or i//m==0 or i//m==m-1:
+                union(i,m*m)
+        for i in range(n):
+            for j in range(n):
+                if grid[i][j]=='/':
+                    union(m*i+j+1,m*(i+1)+j)
+                elif grid[i][j]=='\\':
+                    union(m*i+j,m*(i+1)+j+1)
+        return self.res
