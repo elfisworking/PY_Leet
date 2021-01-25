@@ -34,7 +34,7 @@ class Solution:
                 if r < N-1: union(base + 3,base + 4*N + 1)
         return sum(parent[i] == i for i in range(4*N*N))
     
-    def regionsBySlashes(self, grid: List[str]) -> int:
+    def regionsBySlashes_faster(self, grid: List[str]) -> int:
         n=len(grid)
         m=n+1
         self.res=1
@@ -50,15 +50,20 @@ class Solution:
             if fx!=fy:
                 parent[fx]=fy
             else:
+                # 发现一个环 结果加一
                 self.res+=1
-
+        # 构建 (n+1)*(n+1)个顶点
         for i in range(m*m):
+            # 合并这些边缘节点  即原图中边上的节点
             if i%m==0 or i%m==m-1 or i//m==0 or i//m==m-1:
                 union(i,m*m)
         for i in range(n):
             for j in range(n):
+                # 空格不处理
                 if grid[i][j]=='/':
+                    # / 合并左下 和 右上的节点
                     union(m*i+j+1,m*(i+1)+j)
+                    # \ 合并左上 和 右下的节点
                 elif grid[i][j]=='\\':
                     union(m*i+j,m*(i+1)+j+1)
         return self.res
