@@ -27,9 +27,12 @@ class Solution:
         n, rightmost = len(nums), 0
         for i in range(n):
             if i <= rightmost:
+                # 这里面比较消耗时间 可以进行优化
                 rightmost = max(rightmost, i + nums[i])
                 if rightmost >= n - 1:
                     return True
+            if i > rightmost:
+                break
         return False
     # 解答中最快的解法
     # 时间耗时 40ms
