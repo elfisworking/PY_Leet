@@ -1,4 +1,5 @@
 # 并查集模板
+from typing import List
 class UnionFind:
     def __init__(self, n: int):
         self.parent = list(range(n))
