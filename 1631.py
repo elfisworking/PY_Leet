@@ -34,7 +34,7 @@ class Solution:
                 if i>0:
                     edges.append((iden-n,iden,abs(heights[i][j]-heights[i-1][j])))
                 if j > 0:
-                    edges.append((iden-1-1,iden,abs(heights[i][j]-heights[i][j-1])))
+                    edges.append((iden-1,iden,abs(heights[i][j]-heights[i][j-1])))
         
         edges.sort(key=lambda e:e[2])
         uf = UnionFind(m*n)
