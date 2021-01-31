@@ -6,12 +6,15 @@ class UnionFind:
         self.n = n
         # 当前连通分量数目
         self.setCount = n
-    
-    def findset(self, x: int) -> int:
-        if self.parent[x] == x:
-            return x
-        self.parent[x] = self.findset(self.parent[x])
-        return self.parent[x]
+    # 修改后的find函数 减少花费的时间
+    def findset(self, node: int) -> int:
+        # if self.parent[x] == x:
+        #     return x
+        # self.parent[x] = self.findset(self.parent[x])
+        # return self.parent[x]
+        while self.parent[node] != node:
+            node = self.parent[self.parent[node]]  
+        return node
     
     def unite(self, x: int, y: int) -> bool:
         x, y = self.findset(x), self.findset(y)
