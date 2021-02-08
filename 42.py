@@ -23,8 +23,8 @@ class Solution:
     #             left = right
     #             right = left+1
     #     return ans
-    # 暴力方法 超出时间限制
-    def trap(self, height: List[int]) -> int:
+    # 暴力方法 超出时间限制 
+    def trap_violent_solution(self, height: List[int]) -> int:
         l = len(height)
         if l <= 0:
             return 0
@@ -39,6 +39,9 @@ class Solution:
                 max_right = max(max_right,height[b])
             ans += min(max_left,max_right)-height[i]
         return ans
+    # 使用动态规划
+    def trap(self, height: List[int]) -> int:
+
 
 s = Solution()
 print(s.trap([4,2,0,3,2,5]))
