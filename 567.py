@@ -53,9 +53,11 @@ class Solution:
         for c in cnt:
             if c != 0:
                 diff += 1
+        if diff == 0:
+            return True
         for i in range(l1,l2):
             x = ord(s2[i]) - bg 
-            y = ord(s1[i-l1]) - bg
+            y = ord(s2[i-l1]) - bg
             if x==y:
                 continue
             if cnt[x] == 0:
@@ -74,4 +76,4 @@ class Solution:
 
 
 s  = Solution()
-print(s.checkInclusion("ab","eidbaoo"))
+print(s.checkInclusion("ab","eidboaoo"))

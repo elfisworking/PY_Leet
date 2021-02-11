@@ -1,5 +1,6 @@
 from typing import List
 class Solution:
+    # my solution
     def maxTurbulenceSize(self, arr: List[int]) -> int:
         l = len(arr)
         if l < 2:
@@ -41,6 +42,8 @@ class Solution:
                     left = right
         ans = max(ans_1,ans_2,right-left+1)
         return ans
+    # official solution
+    
 s  = Solution()
 print(s.maxTurbulenceSize([0,8,45,88,48,68,28,55,17,24]))
 
