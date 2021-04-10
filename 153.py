@@ -15,4 +15,4 @@ class Solution:
     def findMin_fun(self, nums: List[int]) -> int:
         return min(nums)
 s = Solution()
-print(s.findMin([4,5,6,7,0,1,2]))
+print(s.findMin([1,2,3]))
