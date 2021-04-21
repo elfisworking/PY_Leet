@@ -34,4 +34,37 @@ class Solution {
     //     return true;
     // }
     //==================
+    public int strStr(String haystack, String needle) {
+        int left = 0;
+        int right = 0;
+        int res = -1;
+        char [] a = haystack.toCharArray();
+        char [] b = needle.toCharArray();
+        int end = a.length-b.length;
+        while(left<end){
+            if(a[left]==(b[0])){
+                right = left;
+                boolean flag  = true;
+                for(int i = 0;i<b.length;i++){
+                    if(a[right]==b[i]){
+                        right++;
+                    }else{
+                        left = right;
+                        flag = false;
+                        break;
+                    }
+                if(flag){
+                    return left;
+                }
+                }
+            }else{
+            left++;
+            }
+        }
+        return  res;
+
+    }
+    public static void main(String[] args) {
+        So
+    }
 }
