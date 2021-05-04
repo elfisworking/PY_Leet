@@ -12,5 +12,4 @@ class Solution:
             for a in range(len(row)-1):
                 b += row[a]
                 wall_dict[b] = wall_dict[b]+1
-
         return height-max(wall_dict.values())

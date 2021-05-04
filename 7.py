@@ -1,3 +1,5 @@
+# 整数反转
+# https://leetcode-cn.com/problems/reverse-integer/
 # this function spend 28ms 13MB
 def reverse_1(x):
     """
