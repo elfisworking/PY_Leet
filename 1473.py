@@ -1,10 +1,29 @@
 # 粉刷房子 III
 # https://leetcode-cn.com/problems/paint-house-iii/
 from typing import List
+from functools import lru_cache
 # 本题使用了动态规划的解题思路
 # 思考 暴力搜索，搜索+记忆，动态规划
 # 动态规划 转移方程
 class Solution:
+    # 搜索+记忆
+    def minCost_DFS(self, houses: List[int], cost: List[List[int]], m: int, n: int, target: int) -> int:
+
+        @lru_cache(None)
+        def dfs(i, target, color):
+            if target == -1 or i + target > m:
+                return float("inf")
+            if i == m:
+                return 0
+
+            if houses[i] != 0:
+                return dfs(i+1, target if houses[i]==color else target-1, houses[i])
+            else:
+                return min(dfs(i+1, target if j+1==color else target-1, j+1) + cost[i][j] for j in range(n))
+
+        ans = dfs(0, target, -1)
+        return ans if ans != float("inf") else -1
+    # 动规的方法
     def minCost(self, houses: List[int], cost: List[List[int]], m: int, n: int, target: int) -> int:
         INF = float("inf")
         # dp[i][j][k]
