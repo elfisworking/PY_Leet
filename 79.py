@@ -1,6 +1,3 @@
-# 剑指 Offer 12. 矩阵中的路径
-# https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/
-# DFS + 剪枝
 from typing import List
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
@@ -14,7 +11,7 @@ class Solution:
             result = False
             for di ,dj in directions:
                 newi, newj = i+di,j+dj
-                if 0<= newi < len(board) and 0<=newj < len(board[0]):
+                if 0<= newi < len(board) and 0<newj < len(board[0]):
                     if (newi,newj) not in visited:
                         if check(newi,newj,k+1):
                             result = True
