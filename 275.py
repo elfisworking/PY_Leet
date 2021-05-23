@@ -15,6 +15,6 @@ class Solution:
                 right = mid
             else:
                 left = mid +1
-        return l -left
+        return l-left
 s = Solution()
-print(s.hIndex([1,2,100]))
+print(s.hIndex([1]))
