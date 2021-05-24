@@ -4,6 +4,7 @@ class Solution:
         ans = []
         temp = []
         l = len(nums)
+        # 深度搜索
         def dfs(begin):
             if len(temp) == l:
                 ans.append(temp[:])

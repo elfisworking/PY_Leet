@@ -41,6 +41,7 @@ class Solution:
         return ans
     # 使用动态规划
     def trap(self, height: List[int]) -> int:
+        pass
 
 
 s = Solution()
