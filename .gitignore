@@ -2,3 +2,5 @@ test.py
 tips/*
 other/*
 java/*.class
+leetcode_plugin/*
+template/memory.py

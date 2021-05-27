@@ -38,6 +38,6 @@ class Solution:
                 res += s[i]
         return res
     
-    
+
 s = Solution()
-print(s.reverseParentheses("(u(love)i)"))
+print(s.reverseParentheses_stack("(u(love)i)"))
