@@ -4,3 +4,5 @@ other/*
 java/*.class
 leetcode_plugin/*
 template/memory.py
+PAT/*.exe
+.vscode

@@ -1,4 +1,4 @@
-# 汉明距离
+# 461 汉明距离
 # https://leetcode-cn.com/problems/hamming-distance/solution/yi-ming-ju-chi-by-leetcode-solution-u1w7/
 class Solution:
     # 暴力 直接进行比较
