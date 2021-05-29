@@ -1,6 +1,6 @@
 # 713. 乘积小于K的子数组
 # https://leetcode-cn.com/problems/subarray-product-less-than-k/
-from typing import List 
+from  typing import List
 class Solution:
     def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
         if not nums:
@@ -16,5 +16,3 @@ class Solution:
             res += right -left + 1
             right += 1
         return res
-s = Solution()
-print(s.numSubarrayProductLessThanK([10,5,2,6],0))

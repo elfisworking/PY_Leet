@@ -2,6 +2,7 @@
 using namespace std;
 int main() {
     int a, b;
+    printf("test\n");
     cin >> a >> b;
     string s = to_string(a + b);
     int len = s.length();
@@ -10,5 +11,7 @@ int main() {
         if (s[i] == '-') continue;
         if ((i + 1) % 3 == len % 3 && i != len - 1) cout << ",";
     }
+    cin.ignore();  
+    cin.get(); 
     return 0;
 }
