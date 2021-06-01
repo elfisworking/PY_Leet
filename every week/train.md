@@ -1,12 +1,15 @@
 # Every Week Leetcode Train
 ## Questions
-* [477. 汉明距离总和](https://leetcode-cn.com/problems/total-hamming-distance/)
-* [461 汉明距离](https://leetcode-cn.com/problems/hamming-distance/solution/yi-ming-ju-chi-by-leetcode-solution-u1w7/)
-* [560. 和为K的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
 * [1074. 元素和为目标值的子矩阵数量](https://leetcode-cn.com/problems/number-of-submatrices-that-sum-to-target/)
-
+* [342 4的幂](https://leetcode-cn.com/problems/power-of-four/)
+* [61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/)
+* [763. 划分字母区间](https://leetcode-cn.com/problems/partition-labels/)
+* [826. 安排工作以达到最大收益](https://leetcode-cn.com/problems/most-profit-assigning-work/)
+* [1744. 你能在你最喜欢的那天吃到你最喜欢的糖果吗？](https://leetcode-cn.com/problems/can-you-eat-your-favorite-candy-on-your-favorite-day/)
 ## Not Done
 * [363. 矩形区域不超过 K 的最大数值和](https://leetcode-cn.com/problems/max-sum-of-rectangle-no-larger-than-k/)
 
+
+
 ## Related
-* [304. 二维区域和检索 - 矩阵不可变](https://leetcode-cn.com/problems/range-sum-query-2d-immutable/)
+
