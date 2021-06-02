@@ -1,4 +1,4 @@
-# Every Week Leetcode Rewiew
+# Every Week Leetcode Rewiew Using C++
 ## Questions
 * [349. 两个数组的交集](https://leetcode-cn.com/problems/intersection-of-two-arrays/)
 * [350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/)
@@ -11,3 +11,7 @@
 * [560. 和为K的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
 * [304. 二维区域和检索 - 矩阵不可变](https://leetcode-cn.com/problems/range-sum-query-2d-immutable/)
 * [1074. 元素和为目标值的子矩阵数量](https://leetcode-cn.com/problems/number-of-submatrices-that-sum-to-target/) 
+* [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
+* [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
+* [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
+* [16. 最接近的三数之和](https://leetcode-cn.com/problems/3sum-closest/)
