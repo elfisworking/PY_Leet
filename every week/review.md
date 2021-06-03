@@ -15,3 +15,4 @@
 * [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
 * [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
 * [16. 最接近的三数之和](https://leetcode-cn.com/problems/3sum-closest/)
+* [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
