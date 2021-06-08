@@ -17,5 +17,6 @@
 * [27. 移除元素](https://leetcode-cn.com/problems/remove-element/)
 * [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/)
 * [474. 一和零](https://leetcode-cn.com/problems/ones-and-zeroes/)
+* [494. 目标和](https://leetcode-cn.com/problems/target-sum/)
 ## Related
 
