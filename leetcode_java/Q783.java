@@ -1,4 +1,4 @@
-package java;
+package leetcode_java;
 /**
  * Definition for a binary tree node.
  * public class TreeNode {

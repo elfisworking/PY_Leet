@@ -1,5 +1,4 @@
-package java;
-
+package leetcode_java;
 class Solution {
     //==================这个方法超时=====================\\
     // public boolean isScramble(String s1, String s2) {

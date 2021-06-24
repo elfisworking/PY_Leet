@@ -1,4 +1,4 @@
-package java;
+package leetcode_java;
 // 45. 跳跃游戏 II
 // https://leetcode-cn.com/problems/jump-game-ii/
 class Q45 {

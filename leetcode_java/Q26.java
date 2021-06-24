@@ -1,4 +1,4 @@
-package java;
+package leetcode_java;
 // 26. 删除有序数组中的重复项
 // https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
 class Q26 {

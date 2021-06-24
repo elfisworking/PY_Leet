@@ -1,4 +1,4 @@
-package java;
+package leetcode_java;
 
 public class Q208 {
     public boolean is_ending;

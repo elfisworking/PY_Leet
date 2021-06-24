@@ -1,4 +1,4 @@
-package java;
+package leetcode_java;
 class Q12 {
     //模拟的方法 
     int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
