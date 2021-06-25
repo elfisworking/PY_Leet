@@ -3,7 +3,7 @@
 from typing import List
 from collections import defaultdict
 class Solution:
-    # 这个方法思路是对的 但是斜率的表示可能会出问题 同时没有考虑到 无穷的情况
+    # 这个方法思路是对的 但是斜率的精度表示可能会出问题 同时没有考虑到 无穷的情况
     def maxPoints(self, points: List[List[int]]) -> int:
         l = len(points)
         d = defaultdict(set)
