@@ -15,6 +15,9 @@
 * [401. 二进制手表](https://leetcode-cn.com/problems/binary-watch/)
 * [1600. 皇位继承顺序](https://leetcode-cn.com/problems/throne-inheritance/)
 * [剑指 Offer 38. 字符串的排列](https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof/)
+* [LCP 07. 传递信息](https://leetcode-cn.com/problems/chuan-di-xin-xi/)
+* [168. Excel表列名称](https://leetcode-cn.com/problems/excel-sheet-column-title/)
+* [剑指 Offer 37. 序列化二叉树](https://leetcode-cn.com/problems/xu-lie-hua-er-cha-shu-lcof/)
 ## Not Done
 * [363. 矩形区域不超过 K 的最大数值和](https://leetcode-cn.com/problems/max-sum-of-rectangle-no-larger-than-k/)
 * [525. 连续数组](https://leetcode-cn.com/problems/contiguous-array/)
