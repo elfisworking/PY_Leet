@@ -11,7 +11,7 @@ class Solution:
         ans = []
         def deep(rootNode:N,candidates:List[int],t:int,begin:int):
             for i in range(begin,len(candidates)):
-
+                
                 if rootNode.value + candidates[i] == t:
                     new_path = [i for i in rootNode.path]
                     new_path.append(candidates[i])
