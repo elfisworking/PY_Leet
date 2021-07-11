@@ -1,4 +1,4 @@
-package 剑指offer.java;
+
 
 public class Q42 {
         public int maxSubArray(int[] nums) {
