@@ -33,3 +33,38 @@ def binary_search(nums,target):
         else:
             right = mid -1  # 注意
     return -1
+
+# 这个版本的二分查找写错了 不知道为什么原因
+def binary_search_error_version(nums:list,target):
+    l = len(nums)
+    left , right = 0 , l # [left,right}
+    while left < right:
+        mid = ( left +  right  ) //2 
+        if nums[mid] <= target:
+            left = mid  # 这里错误了 这里应该修改为mid+1
+        else:
+            right = mid -1  # 这里应该修改为 mid
+
+# 以下为Go代码的二分搜索会出现的乱七八糟的情况
+# func FirstGreaterOrEqual(array []int, target int) int {
+#     // 初始化区间左端点： -1  ||  0  ||  1  ？
+#     l := 0
+#     // 初始化区间右端点： len(array) - 1  ||  len(array)  ||  len(array) + 1  ?
+#     r := len(array)
+#     // 当区间不为空时循环： l + 1 < r  ||  l < r  ||  l <= r  ||  l <= r + 1  ?
+#     for l < r {
+#         // 计算区间中点： l + (r - l) / 2  ||  l + (r - l + 1) / 2  ?
+#         m := l + (r - l) / 2
+#         // 将中点对应的元素同target比较： >  ||  >=  ||  <  || <=  ?
+#         if array[m] < target {
+#             // 继续查找右侧这一半： m - 1  ||  m  ||  m + 1  ?
+#             l = m + 1
+#         } else {
+#             // 继续查找左侧这一半： m - 1  ||  m  ||  m + 1  ?
+#             r = m
+#         }
+#     }
+#     // 这里应该是 l - 1  ||  l  ||  l + 1  ?
+#     // 这里应该是 r - 1  ||  r  ||  r + 1  ?
+#     return l
+# }
