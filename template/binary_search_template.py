@@ -45,6 +45,18 @@ def binary_search_error_version(nums:list,target):
         else:
             right = mid -1  # 这里应该修改为 mid
 
+def binary_search_right(nums:list,target:int):
+    if not nums:
+        return None
+    left , right = 0 , len(nums)
+    while left < right:
+        mid =  left + (right - left)//2
+        if nums[mid] > target:
+            right = mid
+        else:
+            left = mid + 1
+    return left -1 
+
 # 以下为Go代码的二分搜索会出现的乱七八糟的情况
 # func FirstGreaterOrEqual(array []int, target int) int {
 #     // 初始化区间左端点： -1  ||  0  ||  1  ？
@@ -68,3 +80,7 @@ def binary_search_error_version(nums:list,target):
 #     // 这里应该是 r - 1  ||  r  ||  r + 1  ?
 #     return l
 # }
+
+if __name__ == "__main__":
+    nums = [1,2,6,6,6,7]
+    print(binary_search_right(nums,7))
