@@ -27,4 +27,3 @@ class Solution:
         return " ".join(ans)
 
 s = Solution()
-print(s.reverseWords("aa bb  ccc"))
