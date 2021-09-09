@@ -1,5 +1,3 @@
-
-
 public class Q42 {
         public int maxSubArray(int[] nums) {
             int tmp = nums[0];
@@ -10,5 +8,8 @@ public class Q42 {
             }
             return max;
     
+        }
+        public static void main(String[] args) {
+            Q42 test = new Q42();
         }
 }
