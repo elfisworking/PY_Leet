@@ -13,23 +13,31 @@ import heapq
 @State : Nonindepedent | Independent | Half-independent
 @Thinking : 
 '''
+import queue
 class MaxQueue:
 
     def __init__(self):
-        self.queue = deque()
-        self.heap = []
+        self.deque = queue.deque()
+        self.queue = queue.Queue()
 
     def max_value(self) -> int:
-        if not self.queue:
-            return -1
-        return self.heap[0]
+        return self.deque[0] if self.deque else -1
+
 
     def push_back(self, value: int) -> None:
-        self.queue.append(value)
-        heapq.heappush(self.heap,-value)
+        while self.deque and self.deque[-1] < value:
+            self.deque.pop()
+        self.deque.append(value)
+        self.queue.put(value)
 
     def pop_front(self) -> int:
-        return self.queue.popleft()
+        if not self.deque:
+            return -1
+        ans = self.queue.get()
+        if ans == self.deque[0]:
+            self.deque.popleft()
+        return ans
+
         
 
 
