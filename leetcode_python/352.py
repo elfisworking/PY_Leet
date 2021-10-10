@@ -1,31 +1,40 @@
-# 532. 数组中的 k-diff 数对
-# https://leetcode-cn.com/problems/k-diff-pairs-in-an-array/description/
+#
+#
 from typing import List
-class Solution:
-    # 另外还可以使用hash的方法
-    # 注意 a+b = k 可以转化为 b= k-a
-    # 要牢记
-    def findPairs(self, nums: List[int], k: int) -> int:
-        l = len(nums)
-        nums.sort()
-        if l < 2 or (nums[-1]-nums[0])<k:
-            return 0
-        res = 0
-        left = 0 
-        right = left+1
-        while right < l:
-            if (nums[right]-nums[left]) == k:
-                if (right - left) == 1:
-                    res += 1
-                else:
-                    if right > 0 and nums[right-1] != nums[right]:
-                        res += 1
-                right += 1
-            elif (nums[right]-nums[left]) <k :
-                right += 1
-            else:
-                left += 1
-            
-            if left == right:
-                right = left + 1
-        return res
+from collections import defaultdict
+from collections import deque
+from math import inf
+import bisect
+import heapq
+'''
+@File : 352.py
+@Time : 2021/10/10 18:32:33
+@Author : YuMin Zhang
+@State : Indepeedent | Depedent | Half-Depedent
+@Thinking : 维护了一个有序的数组
+'''
+class SummaryRanges:
+
+    def __init__(self):
+        self.l = []
+
+    def addNum(self, val: int) -> None:
+        if val not in self.l:
+            bisect.insort_left(self.l, val)
+
+    def getIntervals(self) -> List[List[int]]:
+        inter = []
+        tmp = [self.l[0]]
+        for i in range(1, len(self.l)):
+            if self.l[i] - 1 != self.l[i-1]:
+                tmp.append(self.l[i-1])
+                inter.append(tmp)
+                tmp = [self.l[i]]
+        tmp.append(self.l[-1])
+        inter.append(tmp)
+        return inter
+
+# Your SummaryRanges object will be instantiated and called as such:
+# obj = SummaryRanges()
+# obj.addNum(val)
+# param_2 = obj.getIntervals()

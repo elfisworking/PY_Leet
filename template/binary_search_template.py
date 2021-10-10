@@ -81,6 +81,16 @@ def binary_search_right(nums:list,target:int):
 #     return l
 # }
 
+# 二分查找 查找小于N的最大数
+def arrangeCoiz(n: int) -> int:
+    left, right = 1, n
+    while left < right:
+        mid = (left + right + 1) // 2
+        if mid * (mid + 1) <= 2 * n:
+            left = mid
+        else:
+            right = mid - 1
+    return left
 if __name__ == "__main__":
     nums = [1,2,6,6,6,7]
     print(binary_search_right(nums,7))
