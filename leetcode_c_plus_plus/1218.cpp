@@ -1,4 +1,5 @@
-class Solution {
+// 1218. 最长定差子序列
+// https://leetcode-cn.com/problems/longest-arithmetic-subsequence-of-given-difference/class Solution {
 public:
     int longestSubsequence(vector<int>& arr, int difference) {
         unordered_map<int, int> dp;
