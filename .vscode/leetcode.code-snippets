@@ -41,6 +41,8 @@
 			"#include<cmath>",
 			"#include<numeric>",
 			"using namespace std;",
+			"#define INT_MAX 2147483637",
+			"#define INT_MIN (-INT_MAX - 1)"
 			"/**" ,
 			"@File : $TM_FILENAME",
 			"@Time : $CURRENT_YEAR/$CURRENT_MONTH/$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
