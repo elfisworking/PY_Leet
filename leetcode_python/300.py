@@ -19,3 +19,18 @@ class Solution:
             maxlen = max(maxlen,dp[a])
                     
         return maxlen
+
+# O(nlogn)
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        tails = [0]*len(nums)
+        res = 0
+        for num in nums:
+            i , j = 0 , res
+            while i < j:
+                mid = i + (j - i) // 2
+                if tails[mid] < num: i = mid + 1
+                else: j = mid
+            tails[i] = num
+            if i == res: res+=1
+        return res
