@@ -38,3 +38,29 @@ class Solution:
                 sum2 -= nums[i - k * 2 + 1]
                 sum3 -= nums[i - k + 1]
         return ans
+
+class Solution:
+    def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
+        n = len(nums)
+        s = [0]
+        for i in nums: 
+            s.append(s[-1] + i)
+        
+        f = [[0]* 4 for _ in range(n + 2)]
+        for i in range(n - k + 1, 0, -1):
+            for j in range(1,4):
+                f[i][j] = max(f[i + 1][j], f[i + k][j - 1] + s[i + k - 1] - s[i - 1])
+        
+        ans = [0] * 3
+        i , j , idx = 1 , 3, 0
+        while j > 0 :
+            if f[i + 1][j] > f[i + k][j - 1] + s[i + k - 1] - s[i - 1]:
+                i += 1
+            else:
+                ans[idx] = i - 1
+                idx += 1
+                i += k
+                j -= 1
+        return ans
+s  = Solution()
+print(s.maxSumOfThreeSubarrays([1,2,1,2,6,7,5,1], 2))
