@@ -18,6 +18,7 @@ using namespace std;
 class Solution {
 public:
     int minArray(vector<int>& numbers) {
+        numbers.push_back();
         int left = 0, right = numbers.size() - 1;
         while(left < right) {
             int mid = left + (right - left) / 2;
