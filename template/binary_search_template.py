@@ -94,3 +94,4 @@ def arrangeCoiz(n: int) -> int:
 if __name__ == "__main__":
     nums = [1,2,6,6,6,7]
     print(binary_search_right(nums,7))
+# 模版 https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/solution/er-fen-3tong-yong-er-fen-mo-ban-by-lu-ch-ialr/
