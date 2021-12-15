@@ -14,4 +14,4 @@ class Solution:
                 left =  mid+1 
         return left
 s =  Solution()
-print(s.searchInsert([1], 0))
+print(s.searchInsert([1, 2, 3, 3], 3))
