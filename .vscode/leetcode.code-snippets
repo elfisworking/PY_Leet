@@ -43,7 +43,7 @@
 			"#include<numeric>",
 			"#include<unordered_map>",
 			"using namespace std;",
-			"#define INT_MAX 2147483637",
+			"#define INT_MAX 2147483647",
 			"#define INT_MIN (-INT_MAX - 1)"
 			"/**" ,
 			"@File : $TM_FILENAME",
