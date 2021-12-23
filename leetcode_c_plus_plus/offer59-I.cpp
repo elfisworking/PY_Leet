@@ -1,11 +1,6 @@
 // 剑指 Offer 59 - I. 滑动窗口的最大值
 // https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/
-#include<map>
-#include<set>
-#include<vector>
-#include<cmath>
-#include<numeric>
-#include<unordered_map>
+#include<bits/stdc++.h>
 using namespace std;
 #define INT_MAX 2147483647
 #define INT_MIN (-INT_MAX - 1)
