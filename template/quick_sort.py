@@ -23,7 +23,7 @@ def sort(nums:list,target):
 def quick_sort(l,r):
     if l >= r:
         return 
-    # 选择r这个位置来临时存放pivot
+    # 选择left这个位置来临时存放pivot
     left , right = l, r
     tmp = nums[left]
     while left < right:
