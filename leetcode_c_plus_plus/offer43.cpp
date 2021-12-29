@@ -14,7 +14,7 @@ using namespace std;
 @Time : 2021/12/27 22:24:16
 @Author : YuMin Zhang
 @State : Depedent 
-@Thinking :
+@Thinking : 想象以下开锁， 固定一位其他位有多少种可能
 @Tag : Hard
 **/
 class Solution {
