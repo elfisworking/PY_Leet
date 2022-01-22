@@ -23,3 +23,29 @@ class Solution:
         return res
 s = Solution()
 print(s.subarraysWithKDistinct([1,2,1,2,3],2))
+
+class Solution:
+    def subarraysWithKDistinct(self, nums: List[int], k: int) -> int:
+        if not nums:
+            return 0
+        left1, left2, right = 0, 0, 0
+        counter1, counter2 = defaultdict(int), defaultdict(int)
+        ans = 0
+        while right < len(nums):
+            counter1[nums[right]] += 1
+            counter2[nums[right]] += 1
+            while len(counter1.keys()) > k:
+                if counter1[nums[left1]] > 0:
+                    counter1[nums[left1]] -= 1
+                if counter1[nums[left1]] == 0:
+                    del counter1[nums[left1]]
+                left1 += 1
+            while len(counter2.keys()) > k - 1:
+                if counter2[nums[left2]] > 0:
+                    counter2[nums[left2]] -= 1
+                if counter2[nums[left2]] == 0:
+                    del counter2[nums[left2]]
+                left2 += 1
+            right += 1
+            ans += left2 - left1
+        return ans

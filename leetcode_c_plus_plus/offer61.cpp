@@ -5,10 +5,10 @@
 #include<vector>
 #include<cmath>
 #include<numeric>
+#include<unordered_set>
 #include<unordered_map>
+#include<limits>
 using namespace std;
-#define INT_MAX 2147483637
-#define INT_MIN (-INT_MAX - 1)
 /**
 @File : offer61.cpp
 @Time : 2021/12/12 20:35:16
@@ -35,5 +35,20 @@ public:
         }
         return ans;
 
+    }
+};
+class Solution {
+public:
+    bool isStraight(vector<int>& nums) {
+        if(nums.size() != 5) return false;
+        unordered_set<int> set;
+        int minVal = 14, maxVal = 0;
+        for(int x: nums) {
+            if(set.count(x) != 0) return false;
+            minVal = min(minVal, x);       
+            maxVal = max(maxVal, x); 
+        }
+        return maxVal - minVal < 5 ? true : false;
+        
     }
 };
