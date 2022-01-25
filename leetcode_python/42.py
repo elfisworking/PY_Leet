@@ -46,6 +46,51 @@ class Solution:
 
 s = Solution()
 print(s.trap([4,2,0,3,2,5]))
+
+# 42. 接雨水
+# https://leetcode-cn.com/problems/trapping-rain-water/
+from typing import List
+from collections import defaultdict
+from collections import deque
+from math import inf
+import bisect
+import heapq
+'''
+@File : 42.py
+@Time : 2022/01/25 17:58:03
+@Author : YuMin Zhang
+@State : Half-Depedent
+@Thinking :
+@Tag : Hard
+'''
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if not height:
+            return 0
+        l = len(height)
+        if l <= 2:
+            return 0
+        left_high = [0] * l 
+        left_high[0] = height[0]
+        tmp_left = height[0]
+
+        for i in range(1, len(height)):
+            left_high[i] = tmp_left
+            tmp_left = max(tmp_left, height[i])
+        
+        right_high = [0] * l
+        tmp_right = height[-1]
+        right_high[-1] = height[-1]
+        for i in range(len(height) - 2, -1, -1):
+            right_high[i] = tmp_right
+            tmp_right = max(tmp_right, height[i])
+        ans = 0
+        for i in range(1, l):
+            min_height = min(left_high[i], right_high[i])
+            if min_height > height[i]:
+                ans += min_height - height[i]
+        return ans
+
             
 
       
