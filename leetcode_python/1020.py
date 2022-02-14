@@ -36,3 +36,23 @@ class Solution:
         for i in range(1, n - 1):
 	        ans += sum(grid[i])
         return ans
+
+class Solution:
+    def numEnclaves(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        # vis = [[False] * n for _ in range(m)]
+        def dfs(r, c):
+            if r < 0 or r >=m or c < 0 or c >= n or grid[r][c] == 0:
+                return 
+            grid[r][c] = 0
+            for x, y in ((r - 1, c), (r + 1, c), (r, c + 1), (r, c - 1)):
+                dfs(x, y)
+
+        for i in range(m):
+            dfs(i, 0)
+            dfs(i, n - 1)
+        for i in range(n):
+            dfs(0, i)
+            dfs(m - 1, i)
+        return sum(grid[i][j] for i in range(1, m - 1) for j in range(1, n - 1))
+        
