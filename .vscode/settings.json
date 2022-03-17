@@ -17,6 +17,11 @@
         "deque": "cpp",
         "vector": "cpp",
         "unordered_map": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "any": "cpp",
+        "list": "cpp",
+        "unordered_set": "cpp",
+        "optional": "cpp",
+        "variant": "cpp"
     }
 }
