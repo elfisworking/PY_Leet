@@ -3,13 +3,14 @@
 # 建树 时间复杂度O(n)
 # s是原始的数组
 # d是线段树
+# p 是根的编号
+# 一般设 d = 4倍的s长度
 '''
 数组不变，区间查询：前缀和、树状数组、线段树；
 数组单点修改，区间查询：树状数组、线段树；
 数组区间修改，单点查询：差分、线段树；
 数组区间修改，区间查询：线段树。
 '''
-from logging import makeLogRecord
 
 
 d = []
@@ -21,7 +22,7 @@ def build(l :int, r :int, s : list, d:list, p: int):
     mid = l  + ((r - l) >> 2)
     # 左节点  
     build(l , mid, s, d, 2 * p + 1)
-    build(mid + 1, s, d, 2 * p + 2)
+    build(mid + 1, r, s, d, 2 * p + 2)
     d[p] = d[2 * p + 1] + d[2 * p + 2]
 
 def getSum(l:int, r:int, s:int, t:int, p:int) -> int:
@@ -41,38 +42,38 @@ def getSum(l:int, r:int, s:int, t:int, p:int) -> int:
 # [l, r] 为修改区间, c 为被修改的元素的变化量, [s, t] 为当前节点包含的区间, p
 # b 是一个懒惰标记数组
 b = []
-def update(l, r, c, s, t, p):
+def update_lazy(l, r, c, s, t, p):
     if l <= s and t <= r:
         d[p] += (t - s + 1) * c
-        b[p] = c
+        b[p] += c
         return 
     mid = s + ((t - s) >> 2)
-    if b[p] and s != t:
+    if b[p] and s < t: # s == t不需要向下传播了
         d[2 * p + 1] += (mid - s + 1) * b[p]
         b[2 * p + 1] +=  b[p]
         d[2 * p + 2] += (t - mid) * b[p]
         b[2 * p + 2] += b[p]
         b[p] = 0
     if l <= mid:
-        update(l, r, c, s, mid, 2 * p + 1)
+        update_lazy(l, r, c, s, mid, 2 * p + 1)
     if r > mid:
-        update(l, r, c, mid + 1, t, 2 * p + 2)
-    d[p] = d[2 * p + 1] * d[2 * p + 2]
+        update_lazy(l, r, c, mid + 1, t, 2 * p + 2)
+    d[p] = d[2 * p + 1] + d[2 * p + 2]
 
     
 # 带有懒惰标记的求和
-def getSum(l, r, s, t, p):
+def getSum_lazy(l, r, s, t, p):
     if l <= s and t <= r:
         return d[p]
     mid = s + ((t - s) >> 2)
-    if b[p]:
+    if b[p] and s < t: # 可能由问题 
         d[2 * p + 1] += (mid - s + 1) * b[p]
         d[2 * p + 2] += (t - mid) * b[p]
         b[2 * p + 1] += b[p]
         b[2 * p + 2] += b[p]
     sum = 0
     if l <= mid:
-        sum += getSum(l, r, s, mid, 2 * p + 1)
+        sum += getSum_lazy(l, r, s, mid, 2 * p + 1)
     if r > mid:
-        sum += getSum(l, r, mid + 1, t, 2 * p + 2)
+        sum += getSum_lazy(l, r, mid + 1, t, 2 * p + 2)
     return sum

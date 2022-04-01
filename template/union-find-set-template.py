@@ -1,13 +1,13 @@
 # 并查集模板
-class UnionFind:
+class UnionSet:
     def __init__(self, n: int):
         self.parent = list(range(n))
-        self.rank = [0] * n
+        self.rank = [1] * n
         # self.n = n
         # # 当前连通分量数目
         # self.setCount = n
     # 修改后的find函数 减少花费的时间
-    def findset(self, x: int) -> int:
+    def find(self, x: int) -> int:
         # 进行了路径压缩
         # if self.parent[x] == x:
         #     return x
@@ -22,7 +22,7 @@ class UnionFind:
         return x if self.parent[x] == x else (self.parent[x] = self.findset(self.parent[x]))
     
     
-    def unite(self, x: int, y: int) -> bool:
+    def union(self, x: int, y: int) -> bool:
         x, y = self.findset(x), self.findset(y)
         if x == y:
             return False
