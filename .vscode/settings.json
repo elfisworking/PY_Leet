@@ -22,6 +22,7 @@
         "list": "cpp",
         "unordered_set": "cpp",
         "optional": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "set": "cpp"
     }
 }
