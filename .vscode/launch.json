@@ -9,6 +9,14 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
             "console": "integratedTerminal"
         },
         {
@@ -16,7 +24,9 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": ["-std=c++11"],
+            "args": [
+                "-std=c++11"
+            ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

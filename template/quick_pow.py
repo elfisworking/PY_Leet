@@ -45,3 +45,14 @@ def quickAdd(y: int, z: int, x: int) -> bool:
         # 不能使用除法
         z >>= 1
     return True
+"""
+    long mul(long a, long k) {
+        long ans = 0;
+        while (k > 0) {
+            if ((k & 1) == 1) ans += a;
+            k >>= 1;
+            a += a;
+        }
+        return ans;
+    }
+"""
