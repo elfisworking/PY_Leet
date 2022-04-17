@@ -23,6 +23,7 @@
         "unordered_set": "cpp",
         "optional": "cpp",
         "variant": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "iostream": "cpp"
     }
 }
