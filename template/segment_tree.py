@@ -11,6 +11,10 @@
 数组区间修改，单点查询：差分、线段树；
 数组区间修改，区间查询：线段树。
 '''
+# https://leetcode.cn/problems/my-calendar-i/solution/by-lfool-xvpv/
+
+from operator import le
+from turtle import left, right, up, update
 
 
 d = []
@@ -77,3 +81,99 @@ def getSum_lazy(l, r, s, t, p):
     if r > mid:
         sum += getSum_lazy(l, r, mid + 1, t, 2 * p + 2)
     return sum
+
+class Node:
+    def __init__(self):
+        self.left = None
+        self.right = None
+        self.val = 0
+        self.lazy = 0
+class SegmentTree:
+    def query(self, node, start, end, left, right):
+        if start <= left and right <= end:
+            return node.val
+        mid = left + (right - left) // 2
+        self.pushDown(node, mid - left + 1, right - mid)
+        ans = 0
+        if start <= mid:
+            ans += self.query(node.left, start, end, left, mid)
+        if end > mid:
+            ans += self.query(node.right, start, end, mid + 1, right)
+        return ans
+    def update(self, node, start, end, left, right, val):
+        if start <= left and right <= end:
+            node.val += (right - left + 1) * val
+            node.lazy += val
+            return
+        mid = left + (right - left) // 2
+        self.pushDown(node, mid - left + 1, right - mid)
+        if start <= mid:
+            self.update(node.left, start, end, left, mid, val)
+        if end > mid:
+            self.update(node.right, start, end, mid + 1, right, val)
+        self.pushUp(node)
+    
+    def pushDown(self, node, leftNum, rightNum):
+        if not node.left:
+            node.left = Node()
+        if not node.right:
+            node.right = Node()
+        node.left.val += leftNum * node.lazy
+        node.right.val += rightNum * node.lazy
+        node.left.lazy += node.lazy
+        node.right.lazy += node.lazy
+        node.lazy = 0
+
+    def pushUp(self, node):
+        node.val = node.right.val + node.left.val
+        
+""""
+/**
+ * @Description: 线段树（动态开点）
+ * @Author: LFool
+ * @Date 2022/6/7 09:15
+ **/
+public class SegmentTreeDynamic {
+    class Node {
+        Node left, right;
+        int val, add;
+    }
+    private int N = (int) 1e9;
+    private Node root = new Node();
+    public void update(Node node, int start, int end, int l, int r, int val) {
+        if (l <= start && end <= r) {
+            node.val += (end - start + 1) * val;
+            node.add += val;
+            return ;
+        }
+        int mid = (start + end) >> 1;
+        pushDown(node, mid - start + 1, end - mid);
+        if (l <= mid) update(node.left, start, mid, l, r, val);
+        if (r > mid) update(node.right, mid + 1, end, l, r, val);
+        pushUp(node);
+    }
+    public int query(Node node, int start, int end, int l, int r) {
+        if (l <= start && end <= r) return node.val;
+        int mid = (start + end) >> 1, ans = 0;
+        pushDown(node, mid - start + 1, end - mid);
+        if (l <= mid) ans += query(node.left, start, mid, l, r);
+        if (r > mid) ans += query(node.right, mid + 1, end, l, r);
+        return ans;
+    }
+    private void pushUp(Node node) {
+        node.val = node.left.val + node.right.val;
+    }
+    private void pushDown(Node node, int leftNum, int rightNum) {
+        if (node.left == null) node.left = new Node();
+        if (node.right == null) node.right = new Node();
+        if (node.add == 0) return ;
+        node.left.val += node.add * leftNum;
+        node.right.val += node.add * rightNum;
+        // 对区间进行「加减」的更新操作，下推懒惰标记时需要累加起来，不能直接覆盖
+        node.left.add += node.add;
+        node.right.add += node.add;
+        node.add = 0;
+    }
+}
+
+"""

@@ -2,6 +2,10 @@
 
 # To heapify subtree rooted at index i.
 # n is size of heap
+# 自顶向下的建堆方式 O(nlog2n)
+# 自下向上的建堆方式 O(n)
+def 
+
 
 
 def heapify(arr, n, i):
